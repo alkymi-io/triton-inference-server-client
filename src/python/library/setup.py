@@ -37,10 +37,7 @@ if "--plat-name" in sys.argv:
 else:
     PLATFORM_FLAG = "any"
 
-if "VERSION" not in os.environ:
-    raise Exception("envvar VERSION must be specified")
-
-VERSION = os.environ["VERSION"]
+VERSION = os.environ.get("VERSION", "0.0.1")
 
 try:
     from wheel.bdist_wheel import bdist_wheel as _bdist_wheel
